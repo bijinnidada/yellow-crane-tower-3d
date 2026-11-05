@@ -1,0 +1,10 @@
+{
+  "name": "yellow-crane-tower-3d",
+  "private": true,
+  "type": "module",
+  "version": "1.0.0",
+  "description": "黄鹤楼 · 程序化 Three.js 三维结构模型",
+  "scripts": {
+    "start": "node server.mjs"
+  }
+}

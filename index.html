@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>黄鹤楼 · 三维结构 | Yellow Crane Tower</title>
+  <meta name="description" content="依据立面与实景资料程序化重建的黄鹤楼三维模型，可旋转、缩放、逐层拆解。" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23a5342a'/><text x='16' y='23' font-size='18' text-anchor='middle' fill='%23f3e6c9' font-family='serif'>鶴</text></svg>" />
+  <link rel="stylesheet" href="./src/styles.css" />
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "./vendor/three.module.js",
+        "three/addons/": "./vendor/addons/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <canvas id="scene" aria-label="黄鹤楼三维模型"></canvas>
+  <div class="vignette"></div>
+
+  <header class="masthead">
+    <div class="seal" aria-hidden="true">鶴</div>
+    <div>
+      <p class="eyebrow">YELLOW CRANE TOWER &middot; WUHAN</p>
+      <h1>黄鹤楼</h1>
+      <p class="meta">始建 223 年 &middot; 现楼 1985 年 &middot; 高 51.4 米</p>
+      <p class="meta dim">五层重檐 &middot; 七十二柱 &middot; 六十翘角</p>
+    </div>
+  </header>
+
+  <div id="labels" class="labels" aria-hidden="true"></div>
+
+  <aside id="info" class="info-panel" aria-hidden="true" aria-live="polite">
+    <button id="infoClose" class="info-close" aria-label="关闭信息面板">&times;</button>
+    <p class="eyebrow">结构构件 &middot; STRUCTURE</p>
+    <h2 id="infoTitle"></h2>
+    <p id="infoSub" class="info-sub"></p>
+    <div class="info-rule"></div>
+    <p id="infoText" class="info-text"></p>
+    <dl id="infoFacts" class="info-facts"></dl>
+  </aside>
+
+  <p class="hint">拖动旋转 &middot; 滚轮缩放 &middot; 点击构件查看结构</p>
+  <p class="credit">程序化重建 &middot; 示意模型</p>
+
+  <nav class="controls" aria-label="视图控制">
+    <button type="button" class="ctl on" data-action="rotate" aria-pressed="true" aria-label="自动旋转">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 12a8.5 8.5 0 1 1-2.5-6.02"/><path d="M20.5 4.5v5.2h-5.2"/></svg>
+      <span class="ctl-text">自动旋转</span>
+    </button>
+    <button type="button" class="ctl" data-action="explode" aria-pressed="false" aria-label="结构拆解">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 3 7.5l9 4.5 9-4.5L12 3Z"/><path d="m3 12.5 9 4.5 9-4.5"/><path d="m3 17.5 9 4.5 9-4.5"/></svg>
+      <span class="ctl-text">结构拆解</span>
+    </button>
+    <button type="button" class="ctl" data-action="night" aria-pressed="false" aria-label="切换夜景">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 14.2A8.6 8.6 0 0 1 9.8 3.6 8.6 8.6 0 1 0 20.4 14.2Z"/></svg>
+      <span class="ctl-text">夜景</span>
+    </button>
+    <button type="button" class="ctl" data-action="reset" aria-label="重置视角">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5"/><path d="M20 9V4h-5"/><path d="M4 15v5h5"/><path d="M20 15v5h-5"/><circle cx="12" cy="12" r="2.2"/></svg>
+      <span class="ctl-text">重置视角</span>
+    </button>
+  </nav>
+
+  <div id="loader" class="loader">
+    <div class="loader-inner">
+      <div class="loader-seal">鶴</div>
+      <div class="loader-title">黄鹤楼</div>
+      <div class="loader-line"><span></span></div>
+    </div>
+  </div>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+node_modules/
+.img2threejs/
+.DS_Store
+Thumbs.db
+
+shots/*
+!shots/final_day_ui.png
+!shots/final_night_ui.png
+!shots/final_explode_ui.png
+!shots/final_mobile_ui.png
+!shots/final_mobile390_ui.png
